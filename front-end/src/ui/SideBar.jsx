@@ -1,0 +1,22 @@
+import styled from "styled-components"
+import MainNav from "./MainNav"
+import Logo from "./Logo"
+
+const StyledSidebar=styled.aside`
+background-color:gray;
+padding: 3.2rem 2.4rem;
+border-right:gray;
+
+grid-row:1/-1;
+
+`
+function SideBar() {
+  return (
+    <StyledSidebar>
+     <Logo/>
+     <MainNav/>
+    </StyledSidebar>
+  )
+}
+
+export default SideBar
