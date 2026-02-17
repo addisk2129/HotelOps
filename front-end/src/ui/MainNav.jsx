@@ -55,6 +55,12 @@ function MainNav() {
         <IoCalendar/>
         Bookings</StyledNavLink>
         </li>
+
+        <li>
+        <StyledNavLink to="/cabins">
+        <IoCalendar/>
+        Cabins</StyledNavLink>
+        </li>
         </NavList>
     </nav>
   )
