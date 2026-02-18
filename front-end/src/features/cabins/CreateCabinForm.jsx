@@ -9,9 +9,10 @@ import {useForm} from 'react-hook-form'
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createCabin } from "../../services/apiCabins";
 import toast from "react-hot-toast";
+import FormRow from "../../ui/FormRow";
 
-// Main FormRow container
-const FormRow = styled.div`
+// Main FormRow2 container
+const FormRow2 = styled.div`
   display: grid;
   align-items: center;
   grid-template-columns: 24rem 1fr 1.2fr;
@@ -53,7 +54,9 @@ const Error = styled.span`
 
 function CreateCabinForm() {
 
-  const {register, handleSubmit,reset }=useForm()
+  const {register, handleSubmit,reset,getValues,formState }=useForm()
+   const {errors}=formState
+    console.log("THIS IS Error ",errors)
     const queryCient=useQueryClient()
 
   const {mutate,isLoading:isCreating}=useMutation({
@@ -71,50 +74,72 @@ function CreateCabinForm() {
 
 
    const onSubmit=(data)=>{
-    mutate(data)
+    console.log(data)
+    mutate({...data, image:data.image.at(0)})
 
    }
 
+const onError=(err)=>{
+  //console.log(err)
+}
+
+
   return (
    
-    <Form onSubmit={handleSubmit(onSubmit)}>
-    <FormRow>
-      <Label htmlFor="name">Cabin name</Label>
-      <Input type="text" id="name"  {...register('name',{
-         required:"This field is required"
-      })}/>
-    </FormRow>
+    <Form onSubmit={handleSubmit(onSubmit,onError)}>
+
   
-    <FormRow>
-      <Label htmlFor="maxCapacity">Maximum capacity</Label>
-      <Input type="number" id="maxCapacity" {...register('maxCapacity',{
-         required:"This field is required"
-      })}/>
-    </FormRow>
-    <FormRow>
-      <Label htmlFor="regularPrice">Redular Price</Label>
-      <Input type="number"  id="regularPrice" {...register('regularPrice',{
-         required:"This field is required"
-      })}/>
-    </FormRow>
-    <FormRow>
-      <Label htmlFor="discount">Discount</Label>
-      <Input type="number" defaultValue={0} id="discount" {...register('discount',{
-         required:"This field is required"
-      })}/>
-    </FormRow>
+
+  <FormRow label='Cabin name' error={errors?.name?.message}>
   
-    <FormRow>
-      <Label htmlFor="description">Description</Label>
-      <Textarea id="description" {...register('description',{
+  <Input disabled={isCreating} type="text" id="name"  {...register('name',{
+         required:"This field is required"
+      })}/>
+   </FormRow>
+
+    <FormRow label='Maximum capacit' error={errors?.maxCapacity?.message}>
+      <Input disabled={isCreating} type="number" id="maxCapacity" {...register('maxCapacity',{
+         required:"This field is required",
+         min:{
+          value:1,
+          message:"Capacity should be atleast 1"
+         }
+      })}/>
+   
+</FormRow>
+
+    <FormRow label='Redular Price' error={errors?.regularPrice?.message}>
+      <Input disabled={isCreating} type="number"  id="regularPrice" {...register('regularPrice',{
+         required:"This field is required",
+         min:{
+          value:1,
+          message:"Price should be atleast 1"
+         }
+      })}/>
+</FormRow>
+
+
+    <FormRow label='Discount' error={errors?.discount?.message}>
+      <Input disabled={isCreating} type="number" defaultValue={0} id="discount" {...register('discount',{
+         required:"This field is required",
+        validate:(value)=>value<=getValues().regularPrice || "Discount should be less than regular price"
+
+      })}/>
+
+  </FormRow>
+
+    <FormRow  label='Description' error={errors?.description?.message}>
+      <Textarea disabled={isCreating} id="description" {...register('description',{
          required:"This field is required"
       })}/>
     </FormRow>
-    
-  
-    <FormRow>
-      <Label htmlFor="image">Cabin Photo</Label>
-      <FileInput id="image" accept="image/*"/>
+
+    <FormRow label="Cabin Photo" >
+      <FileInput disabled={isCreating} id="image" accept="image/*"
+      {...register('image',{
+        required:"This field is required"
+     })}
+      />
     </FormRow>
   
     <FormRow>
