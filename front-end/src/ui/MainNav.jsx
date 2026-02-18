@@ -1,69 +1,115 @@
-import styled from "styled-components"
-import { NavLink } from "react-router-dom"
-import { IoCalendar, IoHome } from "react-icons/io5";
-const NavList=styled.ul`
-     display: flex;
-     flex-direction: column;
-     gap:0.8rem;
-`
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-const StyledNavLink=styled(NavLink)`
-         
+import {
+  IoHomeOutline,
+  IoCalendarOutline,
+  IoBedOutline,
+  IoPeopleOutline,
+  IoSettingsOutline,
+} from "react-icons/io5";
+
+/* ---------------- NAV LIST ---------------- */
+
+const NavList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
+/* ---------------- NAV LINK ---------------- */
+
+const StyledNavLink = styled(NavLink)`
   &:link,
-  &:visited{
+  &:visited {
     display: flex;
     align-items: center;
     gap: 1.2rem;
 
-    color:gray;
-    font-size:1.6rem;
-    font-weight:500;
+    color: var(--color-grey-600);
+    font-size: 1.6rem;
+    font-weight: 500;
+
     padding: 1.2rem 2.4rem;
-    transition:all 0.4s;
+    border-radius: var(--border-radius-md);
+
+    transition: all 0.3s;
+    text-decoration:none;
   }
-  
-  &:hover,
-  &:active,
-  &.active:link,
-  &.active:visited
-  {
-  border-radius: 7px;
-    color:gray;
-    background-color: #c4b6b6;
+
+  /* Hover */
+  &:hover {
+    background-color: var(--color-grey-100);
+    color: var(--color-brand-700);
   }
-  
-  & svg{
+
+  /* Active route */
+  &.active {
+    background-color: var(--color-brand-100);
+    color: var(--color-brand-700);
+    font-weight: 600;
+  }
+
+  /* Icon styling */
+  & svg {
     width: 2.4rem;
     height: 2.4rem;
-    color:gray;
-    transition:all 0.4s;
+    transition: all 0.3s;
   }
-  `
+
+  &.active svg {
+    color: var(--color-brand-700);
+  }
+`;
+
+/* ---------------- COMPONENT ---------------- */
+
 function MainNav() {
   return (
     <nav>
       <NavList>
+        {/* Dashboard */}
         <li>
-        <StyledNavLink to="/dashboard"><IoHome/>
-       <span>
-       Home
-        </span> </StyledNavLink>
+          <StyledNavLink to="/dashboard">
+            <IoHomeOutline />
+            <span>Dashboard</span>
+          </StyledNavLink>
         </li>
 
+        {/* Bookings */}
         <li>
-        <StyledNavLink to="/bookings">
-        <IoCalendar/>
-        Bookings</StyledNavLink>
+          <StyledNavLink to="/bookings">
+            <IoCalendarOutline />
+            <span>Bookings</span>
+          </StyledNavLink>
         </li>
 
+        {/* Cabins */}
         <li>
-        <StyledNavLink to="/cabins">
-        <IoCalendar/>
-        Cabins</StyledNavLink>
+          <StyledNavLink to="/cabins">
+            <IoBedOutline />
+            <span>Cabins</span>
+          </StyledNavLink>
         </li>
-        </NavList>
+
+        {/* Users */}
+        <li>
+          <StyledNavLink to="/users">
+            <IoPeopleOutline />
+            <span>Users</span>
+          </StyledNavLink>
+        </li>
+
+        {/* Settings */}
+        <li>
+          <StyledNavLink to="/settings">
+            <IoSettingsOutline />
+            <span>Settings</span>
+          </StyledNavLink>
+        </li>
+      </NavList>
     </nav>
-  )
+  );
 }
 
-export default MainNav
+export default MainNav;

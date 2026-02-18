@@ -49,6 +49,7 @@ const Discount = styled.div`
 
 function CabinRow({ cabin }) {
     const {id:cabinId,name,maxCapacity,regularPrice,discount,image}=cabin
+    
 const queryClient=useQueryClient()
     const {isLoading:isDeleting,mutate}=useMutation({
       mutationFn:deleteCabins,  // mutationFn:(id)=>deleteCabins(id) or
