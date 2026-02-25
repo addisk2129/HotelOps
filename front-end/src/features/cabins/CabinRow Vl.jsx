@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { formatCurrency } from "../../utils/helpers";
+
 import CreateCabinForm from "./CreateCabinForm";
 import { useDeleteCabin } from "./useDeleteCabins";
 import { MdEdit } from "react-icons/md";
@@ -8,10 +9,20 @@ import {  IoDuplicateOutline } from "react-icons/io5";
 import { useCreateCabin } from "./useCreateCabin";
 import Modal from '../../ui/Modal'
 import ConfirmDelete from "../../ui/ConfirmDelete";
-import Table from "../../ui/Table";
-import Menus from '../../ui/Menus'
+// Table structure
+const TableRow = styled.div`
+  display: grid;
+  grid-template-columns: 0.6fr 1.8fr 2.2fr 1fr 1fr 1fr;
+  column-gap: 2.4rem;
+  align-items: center;
+  padding: 1.4rem 2.4rem;
 
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--color-grey-100);
+  }
+`;
 
+// Image styling
 const Img = styled.img`
   display: block;
   width: 6.4rem;
@@ -55,11 +66,11 @@ function handleDuplicate(){
       maxCapacity,regularPrice,discount,image,description
      })
 }
-//Remember Modal is for form and Menus is for edit,dupilicate and delete
+
   return (
     <>
   
-    <Table.Row>
+    <TableRow role='row'>
      <Img src={image}/>
      <Cabin>{name}</Cabin>
      <div>Fits up tp {maxCapacity} guests</div>
@@ -70,34 +81,23 @@ function handleDuplicate(){
 
 
      <div>
+
+      <button disabled={isCreating} onClick={handleDuplicate}><IoDuplicateOutline/></button>
+
        <Modal>
-       <Menus.Menu>
-
-          <Menus.Toggle id={cabinId}/>
-            <Menus.List id={cabinId}>
-                <Menus.Button 
-                icon={<IoDuplicateOutline/>}
-                onClick={handleDuplicate}>Dupilicate</Menus.Button>
-
-              <Modal.Open opens='edit'>
-              <Menus.Button 
-                icon={<MdEdit/>}>
-                Edit</Menus.Button>
-              </Modal.Open>
-
-
-              <Modal.Open opens='delete'>
-                <Menus.Button 
-                icon={ <FaTrash/>}>
-                Delete</Menus.Button>
-            </Modal.Open> 
-              
-          </Menus.List>
-
-
+        <Modal.Open opens='edit'>
+        <button ><MdEdit/></button>
+        </Modal.Open>
        <Modal.Window name='edit'>
         <CreateCabinForm cabinToEdit={cabin}/>
        </Modal.Window>
+
+           
+      <Modal.Open opens='delete'>
+        <button >
+          <FaTrash/>
+        </button>
+      </Modal.Open>   
 
         <Modal.Window name='delete'>
           <ConfirmDelete resourceName='cabins'
@@ -105,10 +105,13 @@ function handleDuplicate(){
            onConfirm={()=>deleteCabin(cabinId)}/>
         </Modal.Window>
 
-      </Menus.Menu>
-      </Modal>
+
+       </Modal>
+    
      </div>
-  </Table.Row>
+     
+
+    </TableRow>
 
    
 

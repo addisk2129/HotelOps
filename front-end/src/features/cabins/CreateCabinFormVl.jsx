@@ -13,7 +13,7 @@ import FormRow from "../../ui/FormRow";
 
 
 
-function CreateCabinForm({cabinToEdit={}}) {
+function CreateCabinForm({cabinToEdit={},onCloseModal}) {
   
 const isEditSession=Boolean(editId)// if there is editId it becames true
 const {id:editId,...editValue}=cabinToEdit;
@@ -38,7 +38,8 @@ const {id:editId,...editValue}=cabinToEdit;
        queryCient.invalidateQueries({
         queryKey:['cabins']
        })
-      reset()
+      reset();
+      onCloseModal?.()
      },
      onError:(err)=>toast.error(err.message)
   })
@@ -114,11 +115,11 @@ const onError=(err)=>{
     </FormRow>
   
     <FormRow>
-      <Button variation="secondary" type="reset">
+      <Button onClick={()=>onCloseModal?.()} variation="secondary" type="reset">
         Cancel
       </Button>
   
-      <Button type="submit" disabled={isCreating}>Create Cabin</Button>
+      <Button type="submit"  disabled={isCreating}>Create Cabin</Button>
     </FormRow>
   </Form>
   

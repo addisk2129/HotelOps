@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
 import Header from "./Header";
 import styled from "styled-components";
+import Uploader from "../data/Uploader";
 
 /* ---------------- APP GRID ---------------- */
 
@@ -51,6 +52,8 @@ function AppLayout() {
       {/* Sidebar */}
       <SidebarWrapper>
         <SideBar />
+     
+     
       </SidebarWrapper>
 
       {/* Header */}

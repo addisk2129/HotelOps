@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 import Spinner from "../../ui/Spinner";
 import CabinRow from "./CabinRow";
@@ -29,7 +30,7 @@ const TableHeader = styled.header`
  
      
      function CabinTable() {
-     const {isLoading,cabins}=useCabins()
+       const {isLoading,cabins}=useCabins()
 
        if(isLoading) return <Spinner/>
        return (

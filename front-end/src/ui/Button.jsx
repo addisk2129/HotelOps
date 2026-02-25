@@ -33,6 +33,17 @@ const variations = {
       background-color: var(--color-grey-200);
     }
   `,
+
+
+danger: css`
+background-color: var(--color-red-800);
+color: white;
+
+&:hover {
+  background-color: var(--color-red-700);
+}
+`,
+
 };
 
 const Button = styled.button`

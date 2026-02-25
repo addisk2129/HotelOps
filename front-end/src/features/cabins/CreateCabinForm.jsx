@@ -12,7 +12,7 @@ import { useEditCabin } from "./useEditCabin";
 
 
 
-function CreateCabinForm({cabinToEdit={}}) {
+function CreateCabinForm({cabinToEdit={},onCloseModal}) {
 
 const {id:editId,...editValue}=cabinToEdit;
 const isEditSession=Boolean(editId);// if there is editId it becames true
@@ -36,10 +36,18 @@ const isEditSession=Boolean(editId);// if there is editId it becames true
     const image=typeof data.image==='string'? data?.image:data.image[0]
 
      if(isEditSession) editCabin({newCabinData:{...data, image}, id:editId},{
-      onSuccess:(data)=>reset()})
+      onSuccess:(data)=>{
+                reset();
+                onCloseModal?.();
+      }
+      })
 
      else createCabin({...data, image:image},{
-    onSuccess:(data)=>reset()})
+    onSuccess:(data)=>{
+                reset()
+                onCloseModal?.()
+              }
+  })
 
    }
 
@@ -51,7 +59,8 @@ const onError=(err)=>{
 
   return (
    
-    <Form onSubmit={handleSubmit(onSubmit,onError)}>
+    <Form onSubmit={handleSubmit(onSubmit,onError)} 
+       type={onCloseModal? 'modal':'regular'}>
 
   
 
@@ -108,7 +117,7 @@ const onError=(err)=>{
     </FormRow>
   
     <FormRow>
-      <Button variation="secondary" type="reset">
+      <Button onClick={()=>onCloseModal?.()} variation="secondary" type="reset">
         Cancel
       </Button>
   
