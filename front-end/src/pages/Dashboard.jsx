@@ -1,9 +1,16 @@
-
+import Row from '../ui/Row'
+import Heading from '../ui/Heading'
+import DashBoardLayout from '../features/dashboard/DashBoardLayout'
+import DashboardFilter from '../features/dashboard/DashBoardFilter'
 function Dashboard() {
   return (
     <>
-      <h1>This is dashboard</h1>
-    </>
+    <Row type="horizontal">
+      <Heading as='h1'>Dashboard</Heading> 
+      <DashboardFilter/>
+    </Row>
+     <DashBoardLayout/>
+    </>  
   )
 }
 

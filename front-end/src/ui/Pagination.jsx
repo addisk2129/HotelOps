@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import { useSearchParams } from "react-router-dom";
-
+import { PAGE_SIZE } from "../utils/constant";
 const StyledPagination = styled.div`
   width: 100%;
   display: flex;
@@ -65,7 +65,7 @@ const PaginationButton = styled.button`
   }
 `;
 
-const PAGE_SIZE=10;
+
 
 
 function Pagination({count}) {
@@ -78,27 +78,25 @@ function Pagination({count}) {
        function nextPage(){
         const next=currentPage === pageCount 
                  ? currentPage:currentPage + 1
-        searchParams.get("page",next);
+        searchParams.set("page",next);
         setSearchParams(searchParams);
        }
 
        function prevPage(){
          const prev= currentPage === 1 
                       ? currentPage : currentPage - 1
-         searchParams.get("page",prev);
+         searchParams.set("page",prev);
          setSearchParams(searchParams);
        }
    if(pageCount <= 1)  return null  
   return (
     <StyledPagination>
-         <p>SHowing 
-            <span> {(currentPage-1)*PAGE_SIZE + 1}</span> 
-            to<span>
+         <P>SHowing 
+            <span> {(currentPage-1)*PAGE_SIZE + 1} </span> 
+            to <span>
             {currentPage===pageCount?
-           count: currentPage * PAGE_SIZE}
-           
-           </span> 
-            of<span> {count}</span> results</p>
+           count: currentPage * PAGE_SIZE}   </span> 
+             of<span> {count}</span> results</P>
          
 
          <Buttons>

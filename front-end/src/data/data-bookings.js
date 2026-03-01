@@ -1,213 +1,325 @@
 // Using cabin names and guest emails as references
 export const bookings = [
+  // RECENT BOOKINGS (Last 7 days) - created_at within last week
   {
-    startDate: "2026-03-15",
-    endDate: "2026-03-20",
-    numNights: 5,
-    numGuests: 2,
-    cabinId: "Ocean View Suite",  // Referencing cabin name
-    guestId: "john.smith@email.com",  // Referencing guest email
-    hasBreakfast: true,
-    extrasPrice: 150,  // 5 nights * 2 guests * $15
-    totalPrice: 1850,  // (350 * 5) + 150
-    status: "checked-out",
-    observations: "Loved the ocean view! Requested late checkout but not possible.",
-    isPaid: true
-  },
-  {
-    startDate: "2026-03-18",
-    endDate: "2026-03-22",
-    numNights: 4,
-    numGuests: 4,
-    cabinId: "Family Deluxe Villa",
-    guestId: "emma.wilson@email.com",
-    hasBreakfast: true,
-    extrasPrice: 240,  // 4 nights * 4 guests * $15
-    totalPrice: 2440,  // (550 * 4) + 240
-    status: "checked-in",
-    observations: "Kids are excited! Requested extra towels and baby cot.",
-    isPaid: true
-  },
-  {
-    startDate: "2026-03-25",
-    endDate: "2026-03-28",
+    startDate: "2026-02-28",
+    endDate: "2026-03-03",
     numNights: 3,
     numGuests: 2,
     cabinId: "Mountain Retreat Cabin",
     guestId: "marco.rossi@email.com",
     hasBreakfast: false,
     extrasPrice: 0,
-    totalPrice: 660,  // 220 * 3
-    status: "unconfirmed",
-    observations: "Celebrating anniversary. Hoping for mountain view.",
-    isPaid: false
+    totalPrice: 660,
+    status: "checked-in",
+    observations: "Ski trip. Need equipment rental info.",
+    isPaid: true,
+    created_at: "2026-02-27T09:15:00Z"  // 1 day ago
   },
   {
-    startDate: "2026-03-22",
-    endDate: "2026-03-27",
-    numNights: 5,
+    startDate: "2026-02-27",
+    endDate: "2026-03-02",
+    numNights: 3,
+    numGuests: 4,
+    cabinId: "Luxury Penthouse",
+    guestId: "yuki.tanaka@email.com",
+    hasBreakfast: true,
+    extrasPrice: 180,
+    totalPrice: 2130,
+    status: "checked-in",
+    observations: "Business trip. Internet working great.",
+    isPaid: true,
+    created_at: "2026-02-26T14:30:00Z"  // 2 days ago
+  },
+  {
+    startDate: "2026-02-26",
+    endDate: "2026-02-28",
+    numNights: 2,
     numGuests: 2,
     cabinId: "Romantic Getaway",
     guestId: "sophie.dubois@email.com",
     hasBreakfast: true,
-    extrasPrice: 150,  // 5 nights * 2 guests * $15
-    totalPrice: 1550,  // (280 * 5) + 150
-    status: "checked-in",
-    observations: "Honeymoon trip! Would love champagne upon arrival.",
-    isPaid: true
+    extrasPrice: 60,
+    totalPrice: 620,
+    status: "checked-out",
+    observations: "Perfect anniversary celebration!",
+    isPaid: true,
+    created_at: "2026-02-25T11:45:00Z"  // 3 days ago
   },
   {
-    startDate: "2026-04-01",
-    endDate: "2026-04-05",
-    numNights: 4,
-    numGuests: 4,
-    cabinId: "Lakefront Paradise",
-    guestId: "hans.mueller@email.com",
-    hasBreakfast: true,
-    extrasPrice: 240,  // 4 nights * 4 guests * $15
-    totalPrice: 1520,  // (320 * 4) + 240
-    status: "unconfirmed",
-    observations: "Planning to fish. Is fishing equipment available?",
-    isPaid: false
-  },
-  {
-    startDate: "2026-03-28",
-    endDate: "2026-03-31",
+    startDate: "2026-02-25",
+    endDate: "2026-02-28",
     numNights: 3,
     numGuests: 1,
     cabinId: "Forest Hideaway",
     guestId: "maria.garcia@email.com",
     hasBreakfast: false,
     extrasPrice: 0,
-    totalPrice: 570,  // 190 * 3
-    status: "unconfirmed",
-    observations: "Digital detox - need peace and quiet. No phone signal is perfect!",
-    isPaid: false
+    totalPrice: 570,
+    status: "checked-out",
+    observations: "Digital detox. No phone signal is perfect!",
+    isPaid: true,
+    created_at: "2026-02-24T16:20:00Z"  // 4 days ago
   },
   {
-    startDate: "2026-03-20",
-    endDate: "2026-03-24",
+    startDate: "2026-02-24",
+    endDate: "2026-02-28",
     numNights: 4,
     numGuests: 4,
-    cabinId: "Luxury Penthouse",
-    guestId: "yuki.tanaka@email.com",
+    cabinId: "Family Deluxe Villa",
+    guestId: "emma.wilson@email.com",
     hasBreakfast: true,
-    extrasPrice: 240,  // 4 nights * 4 guests * $15
-    totalPrice: 2840,  // (650 * 4) + 240
-    status: "checked-in",
-    observations: "Business meeting in area. Need high-speed internet confirmed.",
-    isPaid: true
+    extrasPrice: 240,
+    totalPrice: 2440,
+    status: "checked-out",
+    observations: "Family vacation. Kids enjoyed the pool.",
+    isPaid: true,
+    created_at: "2026-02-23T10:00:00Z"  // 5 days ago
   },
   {
-    startDate: "2026-04-10",
-    endDate: "2026-04-15",
-    numNights: 5,
+    startDate: "2026-02-23",
+    endDate: "2026-02-26",
+    numNights: 3,
+    numGuests: 2,
+    cabinId: "Ocean View Suite",
+    guestId: "john.smith@email.com",
+    hasBreakfast: true,
+    extrasPrice: 90,
+    totalPrice: 1140,
+    status: "checked-out",
+    observations: "Quick weekend getaway. Loved the view!",
+    isPaid: true,
+    created_at: "2026-02-22T13:30:00Z"  // 6 days ago
+  },
+
+  // BOOKINGS FROM LAST 30 DAYS (but > 7 days ago)
+  {
+    startDate: "2026-02-20",
+    endDate: "2026-02-23",
+    numNights: 3,
+    numGuests: 2,
+    cabinId: "Lakefront Paradise",
+    guestId: "hans.mueller@email.com",
+    hasBreakfast: true,
+    extrasPrice: 90,
+    totalPrice: 1050,
+    status: "checked-out",
+    observations: "Beautiful lake views. Will return!",
+    isPaid: true,
+    created_at: "2026-02-15T09:45:00Z"  // 13 days ago
+  },
+  {
+    startDate: "2026-02-18",
+    endDate: "2026-02-22",
+    numNights: 4,
     numGuests: 3,
     cabinId: "Riverside Cottage",
     guestId: "david.chen@email.com",
     hasBreakfast: true,
-    extrasPrice: 225,  // 5 nights * 3 guests * $15
-    totalPrice: 1425,  // (240 * 5) + 225
-    status: "unconfirmed",
-    observations: "Family reunion. Need recommendations for local hiking trails.",
-    isPaid: false
+    extrasPrice: 180,
+    totalPrice: 1140,
+    status: "checked-out",
+    observations: "Great hiking trails nearby.",
+    isPaid: true,
+    created_at: "2026-02-12T11:15:00Z"  // 16 days ago
   },
   {
-    startDate: "2026-03-19",
-    endDate: "2026-03-23",
+    startDate: "2026-02-15",
+    endDate: "2026-02-19",
     numNights: 4,
     numGuests: 4,
     cabinId: "Eco-Friendly Dome",
     guestId: "anna.kowalski@email.com",
     hasBreakfast: false,
     extrasPrice: 0,
-    totalPrice: 1160,  // 290 * 4
+    totalPrice: 1160,
     status: "checked-out",
-    observations: "Amazing stargazing! Would definitely return.",
-    isPaid: true
+    observations: "Amazing stargazing experience!",
+    isPaid: true,
+    created_at: "2026-02-08T14:20:00Z"  // 20 days ago
   },
   {
-    startDate: "2026-04-05",
-    endDate: "2026-04-12",
+    startDate: "2026-02-12",
+    endDate: "2026-02-19",
     numNights: 7,
     numGuests: 6,
     cabinId: "Vineyard View Villa",
     guestId: "carlos.mendoza@email.com",
     hasBreakfast: true,
-    extrasPrice: 630,  // 7 nights * 6 guests * $15
-    totalPrice: 5880,  // (750 * 7) + 630
-    status: "unconfirmed",
-    observations: "Family gathering with 6 adults. Need wine tasting recommendations.",
-    isPaid: true
+    extrasPrice: 630,
+    totalPrice: 5880,
+    status: "checked-out",
+    observations: "Wine tasting tour was amazing!",
+    isPaid: true,
+    created_at: "2026-02-05T16:30:00Z"  // 23 days ago
   },
   {
-    startDate: "2026-03-16",
-    endDate: "2026-03-19",
+    startDate: "2026-02-10",
+    endDate: "2026-02-13",
     numNights: 3,
     numGuests: 2,
     cabinId: "Ocean View Suite",
     guestId: "sarah.j@email.com",
     hasBreakfast: true,
-    extrasPrice: 90,  // 3 nights * 2 guests * $15
-    totalPrice: 1140,  // (350 * 3) + 90
+    extrasPrice: 90,
+    totalPrice: 1140,
     status: "checked-out",
-    observations: "Perfect weekend getaway. Will recommend to friends!",
-    isPaid: true
+    observations: "Birthday celebration. Perfect!",
+    isPaid: true,
+    created_at: "2026-02-01T10:45:00Z"  // 27 days ago
   },
+
+  // BOOKINGS FROM LAST 90 DAYS (but > 30 days ago)
   {
-    startDate: "2026-03-26",
-    endDate: "2026-03-30",
+    startDate: "2026-01-25",
+    endDate: "2026-01-29",
     numNights: 4,
     numGuests: 2,
     cabinId: "Romantic Getaway",
     guestId: "lars.andersen@email.com",
     hasBreakfast: true,
-    extrasPrice: 120,  // 4 nights * 2 guests * $15
-    totalPrice: 1240,  // (280 * 4) + 120
-    status: "unconfirmed",
-    observations: "Surprise birthday for partner. Any special arrangements possible?",
-    isPaid: false
+    extrasPrice: 120,
+    totalPrice: 1240,
+    status: "checked-out",
+    observations: "Winter getaway. Loved the cabin!",
+    isPaid: true,
+    created_at: "2026-01-15T09:30:00Z"  // 44 days ago
   },
   {
-    startDate: "2026-04-02",
-    endDate: "2026-04-06",
+    startDate: "2026-01-20",
+    endDate: "2026-01-24",
     numNights: 4,
     numGuests: 2,
     cabinId: "Mountain Retreat Cabin",
     guestId: "fatima.alsayed@email.com",
     hasBreakfast: false,
     extrasPrice: 0,
-    totalPrice: 880,  // 220 * 4
-    status: "unconfirmed",
-    observations: "First time in mountains. Need rental car recommendations.",
-    isPaid: false
+    totalPrice: 880,
+    status: "checked-out",
+    observations: "First time in mountains. Beautiful!",
+    isPaid: true,
+    created_at: "2026-01-10T13:15:00Z"  // 49 days ago
   },
   {
-    startDate: "2026-03-21",
-    endDate: "2026-03-25",
+    startDate: "2026-01-15",
+    endDate: "2026-01-19",
     numNights: 4,
     numGuests: 4,
     cabinId: "Family Deluxe Villa",
     guestId: "liam.obrien@email.com",
     hasBreakfast: true,
-    extrasPrice: 240,  // 4 nights * 4 guests * $15
-    totalPrice: 2440,  // (550 * 4) + 240
-    status: "checked-in",
-    observations: "Kids' spring break. Is the pool heated?",
-    isPaid: true
+    extrasPrice: 240,
+    totalPrice: 2440,
+    status: "checked-out",
+    observations: "Winter break with kids. Loved it!",
+    isPaid: true,
+    created_at: "2026-01-05T11:45:00Z"  // 54 days ago
   },
   {
-    startDate: "2026-03-29",
-    endDate: "2026-04-02",
+    startDate: "2026-01-10",
+    endDate: "2026-01-14",
     numNights: 4,
     numGuests: 2,
     cabinId: "Lakefront Paradise",
     guestId: "elena.popescu@email.com",
     hasBreakfast: true,
-    extrasPrice: 120,  // 4 nights * 2 guests * $15
-    totalPrice: 1400,  // (320 * 4) + 120
+    extrasPrice: 120,
+    totalPrice: 1400,
+    status: "checked-out",
+    observations: "Winter photography. Stunning sunrises!",
+    isPaid: true,
+    created_at: "2025-12-28T08:30:00Z"  // 62 days ago
+  },
+  {
+    startDate: "2026-01-05",
+    endDate: "2026-01-10",
+    numNights: 5,
+    numGuests: 2,
+    cabinId: "Ocean View Suite",
+    guestId: "john.smith@email.com",
+    hasBreakfast: true,
+    extrasPrice: 150,
+    totalPrice: 1850,
+    status: "checked-out",
+    observations: "New Year getaway. Perfect start to 2026!",
+    isPaid: true,
+    created_at: "2025-12-20T14:20:00Z"  // 70 days ago
+  },
+
+  // ADDITIONAL 5 BOOKINGS (Total 20)
+  {
+    startDate: "2026-03-05",
+    endDate: "2026-03-08",
+    numNights: 3,
+    numGuests: 2,
+    cabinId: "Ocean View Suite",
+    guestId: "sarah.j@email.com",
+    hasBreakfast: true,
+    extrasPrice: 90,
+    totalPrice: 1140,
     status: "unconfirmed",
-    observations: "Photography trip. Need best spots for sunrise photos.",
-    isPaid: false
+    observations: "Spring break getaway.",
+    isPaid: false,
+    created_at: "2026-02-28T08:00:00Z"  // Today
+  },
+  {
+    startDate: "2026-03-07",
+    endDate: "2026-03-11",
+    numNights: 4,
+    numGuests: 2,
+    cabinId: "Mountain Retreat Cabin",
+    guestId: "fatima.alsayed@email.com",
+    hasBreakfast: false,
+    extrasPrice: 0,
+    totalPrice: 880,
+    status: "unconfirmed",
+    observations: "Spring skiing trip.",
+    isPaid: false,
+    created_at: "2026-02-27T10:30:00Z"  // 1 day ago
+  },
+  {
+    startDate: "2026-03-08",
+    endDate: "2026-03-12",
+    numNights: 4,
+    numGuests: 4,
+    cabinId: "Family Deluxe Villa",
+    guestId: "liam.obrien@email.com",
+    hasBreakfast: true,
+    extrasPrice: 240,
+    totalPrice: 2440,
+    status: "unconfirmed",
+    observations: "Spring break with family.",
+    isPaid: true,
+    created_at: "2026-02-26T15:45:00Z"  // 2 days ago
+  },
+  {
+    startDate: "2026-03-10",
+    endDate: "2026-03-15",
+    numNights: 5,
+    numGuests: 2,
+    cabinId: "Ocean View Suite",
+    guestId: "john.smith@email.com",
+    hasBreakfast: true,
+    extrasPrice: 150,
+    totalPrice: 1850,
+    status: "unconfirmed",
+    observations: "Return visit. Booking early!",
+    isPaid: true,
+    created_at: "2026-02-25T09:15:00Z"  // 3 days ago
+  },
+  {
+    startDate: "2026-03-12",
+    endDate: "2026-03-16",
+    numNights: 4,
+    numGuests: 4,
+    cabinId: "Family Deluxe Villa",
+    guestId: "emma.wilson@email.com",
+    hasBreakfast: true,
+    extrasPrice: 240,
+    totalPrice: 2440,
+    status: "unconfirmed",
+    observations: "Second visit. Kids can't wait!",
+    isPaid: true,
+    created_at: "2026-02-24T11:30:00Z"  // 4 days ago
   }
 ];

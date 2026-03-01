@@ -1,11 +1,24 @@
-
+import UpdateUserDataForm from "../features/authenthication/UPdatePasswordForm";
+import UpdatePasswordForm from "../features/authenthication/UpdateUserDataForm";
+import Heading from "../ui/Heading";
+import Row from "../ui/Row";
 
 function Account() {
-  return (
-    <>
-      
-    </>
-  )
+    return (
+        <>
+            <Heading as="h1">Update your account</Heading>
+
+            <Row>
+                <Heading as="h3">Update user data</Heading>
+                <UpdateUserDataForm/>
+            </Row>
+
+            <Row>
+                <Heading as="h3">Update password</Heading>
+                <UpdatePasswordForm/>
+            </Row>
+        </>
+    );
 }
 
-export default Account
+export default Account;

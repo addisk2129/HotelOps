@@ -82,16 +82,34 @@ function Uploader() {
     async function uploadAll() {
         setIsLoading(true);
         
-        // Bookings need to be deleted first because of foreign key constraints
-        await deleteBookings();
-        await deleteGuests();
-        await deleteCabins();
-
-        await createCabins();
-        await createGuests();
-        await createBookings();
-
-        setIsLoading(false);
+        try {
+            // First verify the column names
+            const { data: columns } = await supabase
+                .from('bookings')
+                .select('*')
+                .limit(1);
+            
+            if (columns && columns[0]) {
+                console.log('Booking columns:', Object.keys(columns[0]));
+            }
+    
+            // Delete in correct order
+            await deleteBookings();
+            await deleteGuests();
+            await deleteCabins();
+    
+            // Create in correct order
+            await createCabins();
+            await createGuests();
+            await createBookings();
+    
+            
+        } catch (error) {
+            console.error('Upload failed:', error);
+           
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     async function uploadBookingsOnly() {
