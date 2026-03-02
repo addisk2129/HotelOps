@@ -82,44 +82,48 @@ const StyledButton = styled.button`
   const MenusContext=createContext()
 
 
-function Menus({children}) {
- const [openId,setOpenId]=useState();
-  const [position,setPosition]=useState(null);
-
-
- const close=()=>setOpenId("");
- const open=setOpenId;
-
- return <MenusContext.Provider value={{openId,close,open,position,setPosition}}>
-       {children}
- </MenusContext.Provider>
-
-}
-
-function Toggle({id}){
-   const {openId,close,open,setPosition}=useContext(MenusContext);
-
-
-  function handleClick(e){
-       const rect=e.target.closest("button").getBoundingClientRect()
-
-       setPosition({
-        x:window.innerWidth-rect.width-rect.x,
-        y:rect.y+rect.height+8
-       })
-        openId ===''|| openId!==id ? open(id):close()
+  function Menus({children}) {
+    const [openId, setOpenId] = useState("");
+    const [position, setPosition] = useState(null);
+  
+    const close = () => setOpenId("");
+    const open = (id) => setOpenId(id); 
+  
+    return (
+      <MenusContext.Provider value={{openId, close, open, position, setPosition}}>
+        {children}
+      </MenusContext.Provider>
+    );
   }
 
-   return <StyledToggle onClick={handleClick}>
-           <PiDotsThreeBold />
-          </StyledToggle>
-}
-
-
+  function Toggle({ id }) {
+    const { openId, close, open, setPosition } =
+      useContext(MenusContext);
+  
+    function handleClick(e) {
+      e.stopPropagation();
+  
+      const rect = e.currentTarget.getBoundingClientRect();
+  
+      setPosition({
+        x: window.innerWidth - rect.width - rect.x,
+        y: rect.y + rect.height + 8,
+      });
+  
+      if (openId === id) close();
+      else open(id);
+    }
+  
+    return (
+      <StyledToggle onClick={handleClick}>
+        <PiDotsThreeBold />
+      </StyledToggle>
+    );
+  }
 function List({id,children}){
   const {openId,position,close}=useContext(MenusContext);
 
-  const ref=useOutsideClick(close)
+  const ref=useOutsideClick(close,false)
 
  if(openId !== id) return null;
 

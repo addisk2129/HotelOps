@@ -8,7 +8,7 @@ import Modal from '../../ui/Modal'
 import { IoIosEye } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { IoEnterOutline, IoLogInOutline } from "react-icons/io5";
-import { useCheckout } from "../check-in-out/useCheckinOut";
+import { useCheckout } from "../check-in-out/useCheckOut";
 import { FaTrash } from "react-icons/fa"
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import { useDeleteBooking } from "./useDeleteBooking";

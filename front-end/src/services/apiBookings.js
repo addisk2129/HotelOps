@@ -1,7 +1,7 @@
 import { getToday } from "../utils/helpers";
 import { PAGE_SIZE } from "../utils/constant";
 import supabase from "./supabase";
-
+import { isToday } from "date-fns";  
 export async function getBookings({filter,sortBy,page}) {
          let query=supabase
                      .from("bookings")
@@ -115,4 +115,30 @@ export async function getStaysAfterDate(date) {
     return data;
 }
 
-  
+
+
+
+
+// ... rest of your code
+
+export async function getStaysTodayActivity() {
+  const { data, error } = await supabase
+    .from("bookings")
+    .select("*, guests(fullName, nationality, countryFlag)")
+    .order("created_at");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Today's activities could not be loaded");
+  }
+
+  // Filter activities that happen today
+  const todayActivities = data?.filter((booking) => {
+    return (
+      (booking.status === "unconfirmed" && isToday(new Date(booking.startDate))) ||
+      (booking.status === "checked-in" && isToday(new Date(booking.endDate)))
+    );
+  });
+
+  return todayActivities;
+}

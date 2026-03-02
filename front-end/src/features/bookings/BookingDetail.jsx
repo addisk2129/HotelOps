@@ -8,12 +8,13 @@ import Tag from "../../ui/Tag";
 import ButtonText from "../../ui/ButtonText";
 import ButtonGroup from "../../ui/ButtonGroup";
 import Button from "../../ui/Button";
+import Empty from "../../ui/Empty";
 import Spinner from "../../ui/Spinner";
 import BookingDataBox from "./BookingDataBox";
 
 import { useBooking } from "./useBooking";
 import { useMoveBack } from "../../hooks/useMoveBack";
-import { useCheckout } from "../check-in-out/useCheckinOut";
+import { useCheckout } from "../check-in-out/useCheckOut";
 import { IoEnterOutline } from "react-icons/io5";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Modal from "../../ui/Modal";
@@ -39,7 +40,7 @@ function BookingDetail() {
   };
 
   if (isLoading) return <Spinner />;
-  if (!booking) return <p>Booking not found</p>;
+  if (!booking) return <Empty resourceName='booking'/>;
 
   return (
     <>

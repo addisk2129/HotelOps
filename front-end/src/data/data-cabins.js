@@ -78,5 +78,86 @@ export const cabins = [
       discount: 120,
       description: "Stunning three-bedroom villa overlooking working vineyards. Heated pool, outdoor kitchen, fire pit, and floor-to-ceiling windows. Perfect for groups.",
       image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400"
-    }
+    },
+  {
+    name: "Sunset Cliff Villa",
+    maxCapacity: 6,
+    regularPrice: 890,
+    discount: 120,
+    description: "Spectacular villa perched on a cliff edge with uninterrupted sunset views. Features infinity pool, hot tub, and floor-to-ceiling windows.",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400"
+  },
+  {
+    name: "Treetop Canopy Lodge",
+    maxCapacity: 4,
+    regularPrice: 520,
+    discount: 80,
+    description: "Elevated among ancient trees, this lodge offers a unique perspective of the forest canopy. Includes a hanging net lounge and outdoor rain shower.",
+    image: "https://images.unsplash.com/photo-1615635949392-65eab9f5fef3?w=400"
+  },
+  {
+    name: "Arctic Glass Igloo",
+    maxCapacity: 2,
+    regularPrice: 750,
+    discount: 150,
+    description: "Sleep under the northern lights in this thermal glass igloo. Heated floors, fur blankets, and a private sauna included.",
+    image: "https://images.unsplash.com/photo-1565118531790-95c2e8f55c8e?w=400"
+  },
+  {
+    name: "Desert Oasis Retreat",
+    maxCapacity: 4,
+    regularPrice: 680,
+    discount: 100,
+    description: "Luxurious adobe-style villa in the heart of the desert. Private plunge pool, outdoor fireplace, and stargazing deck.",
+    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=400"
+  },
+  {
+    name: "Floating Lake Cabin",
+    maxCapacity: 2,
+    regularPrice: 420,
+    discount: 60,
+    description: "Unique cabin built on a floating platform. Wake up to gentle waves, fish from your deck, and enjoy panoramic lake views.",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400"
+  },
+  {
+    name: "Vineyard Estate House",
+    maxCapacity: 8,
+    regularPrice: 1200,
+    discount: 200,
+    description: "Stunning estate surrounded by working vineyards. Features a wine cellar, gourmet kitchen, infinity pool, and outdoor dining pavilion.",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400"
+  },
+  {
+    name: "Lighthouse Keepers Quarters",
+    maxCapacity: 3,
+    regularPrice: 380,
+    discount: 0,
+    description: "Historic lighthouse accommodation with spiral staircase and 360-degree ocean views. Includes telescope and weather station.",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400"
+  },
+  {
+    name: "Bamboo Jungle Villa",
+    maxCapacity: 5,
+    regularPrice: 450,
+    discount: 70,
+    description: "Eco-friendly villa built entirely from sustainable bamboo. Outdoor bathroom, jungle shower, and hammock lounge.",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400"
+  },
+  {
+    name: "Ice Hotel Suite",
+    maxCapacity: 2,
+    regularPrice: 550,
+    discount: 110,
+    description: "Experience a night in a sculpted ice suite. Thermal sleeping bags, ice bar, and northern lights wake-up call included.",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400"
+  },
+  {
+    name: "Treehouse Villa",
+    maxCapacity: 4,
+    regularPrice: 480,
+    discount: 90,
+    description: "Multi-level treehouse with rope bridges connecting different platforms. Includes zip line and canopy walkway.",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400"
+  }
+
   ];
